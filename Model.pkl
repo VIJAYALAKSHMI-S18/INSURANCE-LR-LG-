@@ -1,6 +1,6 @@
+import pickle
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
-import pickle
 
 # load dataset
 df = pd.read_csv("insurance_data.csv")
@@ -13,8 +13,8 @@ y = df['bought_insurance']
 model = LogisticRegression()
 model.fit(X, y)
 
-# save model
+# create pkl file
 with open("model.pkl", "wb") as file:
     pickle.dump(model, file)
 
-print("Model saved successfully")
+print("model.pkl created")
