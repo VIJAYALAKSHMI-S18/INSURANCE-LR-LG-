@@ -1,0 +1,20 @@
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+import pickle
+
+# load dataset
+df = pd.read_csv("insurance_data.csv")
+
+# training data
+X = df[['age']]
+y = df['bought_insurance']
+
+# train model
+model = LogisticRegression()
+model.fit(X, y)
+
+# save model
+with open("model.pkl", "wb") as file:
+    pickle.dump(model, file)
+
+print("Model saved successfully")
